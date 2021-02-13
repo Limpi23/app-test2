@@ -10,7 +10,17 @@ export default function HomeStack() {
       <Stack.Screen
         name="home"
         component={Home}
-        options={{title: 'Home'}}></Stack.Screen>
+        options={{
+          title: 'Home',
+          headerStyle: {
+            backgroundColor: '#2D2C3C',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+            fontFamily: 'arial',
+          },
+        }}></Stack.Screen>
     </Stack.Navigator>
   );
 }

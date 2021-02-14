@@ -4,6 +4,7 @@ import {View, StyleSheet, ScrollView} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {ListItem, Avatar} from 'react-native-elements';
 import {getUsers} from '../redux/actions/user';
+import Loading from '../components/Loading';
 
 export default function List() {
   const dispatch = useDispatch();
@@ -25,30 +26,32 @@ function ListItemUser(props) {
   const {data} = props;
   return (
     <ScrollView>
-      {data
-        ? data.map((l, i) => (
-            <ListItem
-              key={i}
-              onPress={() =>
-                navigation.navigate('detail', {
-                  data: l,
-                })
-              }
-              bottomDivider>
-              <Avatar
-                containerStyle={{backgroundColor: '#5F5F5F'}}
-                activeOpacity={2}
-                rounded
-                title={l.name}
-              />
-              <ListItem.Content>
-                <ListItem.Title>{l.name}</ListItem.Title>
-                <ListItem.Subtitle>{l.username}</ListItem.Subtitle>
-                <ListItem.Subtitle>{l.phone}</ListItem.Subtitle>
-              </ListItem.Content>
-            </ListItem>
-          ))
-        : null}
+      {data ? (
+        data.map((l, i) => (
+          <ListItem
+            key={i}
+            onPress={() =>
+              navigation.navigate('detail', {
+                data: l,
+              })
+            }
+            bottomDivider>
+            <Avatar
+              containerStyle={{backgroundColor: '#5F5F5F'}}
+              activeOpacity={2}
+              rounded
+              title={l.name}
+            />
+            <ListItem.Content>
+              <ListItem.Title>{l.name}</ListItem.Title>
+              <ListItem.Subtitle>{l.username}</ListItem.Subtitle>
+              <ListItem.Subtitle>{l.phone}</ListItem.Subtitle>
+            </ListItem.Content>
+          </ListItem>
+        ))
+      ) : (
+        <Loading isVisible={true} text="Cargando ..." />
+      )}
     </ScrollView>
   );
 }

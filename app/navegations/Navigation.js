@@ -49,15 +49,8 @@ function screenOptions(route, color) {
       iconName = 'map';
       break;
     case 'list':
-      iconName = 'star-outline';
+      iconName = 'account';
       break;
-    case 'search':
-      iconName = 'magnify';
-      break;
-    case 'account':
-      iconName = 'home-outline';
-      break;
-
     default:
       break;
   }

@@ -10,7 +10,17 @@ export default function MapStack() {
       <Stack.Screen
         name="map"
         component={Map}
-        options={{title: 'Map'}}></Stack.Screen>
+        options={{
+          title: 'Map',
+          headerStyle: {
+            backgroundColor: '#2D2C3C',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+            fontFamily: 'arial',
+          },
+        }}></Stack.Screen>
     </Stack.Navigator>
   );
 }
